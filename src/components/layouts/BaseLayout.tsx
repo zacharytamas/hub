@@ -4,19 +4,12 @@ import React from 'react';
 import {css, Global} from '@emotion/core';
 import styled from '@emotion/styled';
 
-const breakpoints = {
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280
+const mq = {
+  sm: `@media (min-width: 640px)`,
+  md: `@media (min-width: 768px)`,
+  lg: `@media (min-width: 1024px)`,
+  xl: `@media (min-width: 1280px)`
 };
-
-const mq = Object.fromEntries(
-  Object.entries(breakpoints).map(([name, size]) => [
-    name,
-    `@media (min-width: ${size}px)`
-  ])
-) as Record<keyof typeof breakpoints, string>;
 
 const SiteWidth = styled.section`
   max-width: 40rem;
