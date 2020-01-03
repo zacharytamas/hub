@@ -4,6 +4,20 @@ import React from 'react';
 import {css, Global} from '@emotion/core';
 import styled from '@emotion/styled';
 
+const breakpoints = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280
+};
+
+const mq = Object.fromEntries(
+  Object.entries(breakpoints).map(([name, size]) => [
+    name,
+    `@media (min-width: ${size}px)`
+  ])
+) as Record<keyof typeof breakpoints, string>;
+
 const SiteWidth = styled.section`
   max-width: 40rem;
 `;
@@ -37,8 +51,12 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children}) => {
             font-family: Recursive;
             background-color: #fbfbfb;
             color: #403f53;
-            margin: 2rem 5rem;
+            margin: 1rem 2rem;
             padding: 0;
+
+            ${mq.md} {
+              margin: 2rem 5rem;
+            }
           }
 
           p {
