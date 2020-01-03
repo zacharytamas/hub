@@ -1,15 +1,16 @@
 import React from 'react';
 
 import {BaseLayout} from '../components/layouts';
-import SiteFooter from '../components/SiteFooter';
+import {H1} from '../components/typography';
+
+import About from '../content/about.mdx';
 
 const Home = () => (
   <BaseLayout>
-    <div style={{marginTop: '5rem'}}>
-      <h1 style={{fontSize: '3rem'}}>Hi, I'm Zachary.</h1>
-      <p>I'm a software craftsman living in Atlanta, Georgia.</p>
-      <p>Married. Twin dad. Aspie.</p>
-      <SiteFooter />
+    <div style={{marginTop: '3rem'}}>
+      <H1>Hi, I'm Zachary.</H1>
+
+      <About />
     </div>
   </BaseLayout>
 );

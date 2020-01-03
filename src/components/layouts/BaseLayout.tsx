@@ -4,6 +4,9 @@ import React from 'react';
 import {css, Global} from '@emotion/core';
 import styled from '@emotion/styled';
 
+import SiteHeader from '../SiteHeader';
+import SiteFooter from '../SiteFooter';
+
 const mq = {
   sm: `@media (min-width: 640px)`,
   md: `@media (min-width: 768px)`,
@@ -13,15 +16,18 @@ const mq = {
 
 const SiteWidth = styled.section`
   max-width: 40rem;
+  margin: var(--site-edge-margin-v) var(--site-edge-margin-h);
 `;
 
-interface BaseLayoutProps {}
+interface BaseLayoutProps {
+  pageTitle?: string;
+}
 
-const BaseLayout: React.FC<BaseLayoutProps> = ({children}) => {
+const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
   return (
     <div>
       <Head>
-        <title>Home</title>
+        <title>zacharytamas{pageTitle && ` | ${pageTitle}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -41,24 +47,36 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children}) => {
           }
 
           body {
-            font-family: Recursive;
+            font-family: Recursive, mono;
             background-color: #fbfbfb;
             color: #403f53;
-            margin: 1rem 2rem;
             padding: 0;
-
-            ${mq.md} {
-              margin: 2rem 5rem;
-            }
+            margin: 0;
           }
 
           p {
             line-height: 1.5em;
           }
+
+          :root {
+            --site-edge-margin-v: 1rem;
+            --site-edge-margin-h: 2rem;
+
+            ${mq.md} {
+              --site-edge-margin-v: 2rem;
+              --site-edge-margin-h: 5rem;
+            }
+          }
         `}
       />
 
-      <SiteWidth>{children}</SiteWidth>
+      <SiteHeader></SiteHeader>
+
+      <SiteWidth>
+        {children}
+
+        <SiteFooter />
+      </SiteWidth>
     </div>
   );
 };
