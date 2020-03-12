@@ -3,25 +3,28 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const SiteHeaderStyle = styled.header`
-  background: #309eed;
   display: flex;
-  height: 3rem;
+  height: 5rem;
   align-items: center;
+  margin-bottom: 1rem;
 
-  padding: 0 var(--site-edge-margin-h);
+  color: rgba(0, 0, 0, 0.56);
 
   .brand {
-    font-weight: 500;
-    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.87);
+      transition: 0.25s linear all;
+    }
   }
 `;
 
-const SiteHeader = () => {
-  return (
-    <SiteHeaderStyle>
-      <div className="brand">zacharytamas</div>
-    </SiteHeaderStyle>
-  );
-};
+const SiteHeader = () => (
+  <SiteHeaderStyle>
+    <div className="brand">@zacharytamas</div>
+  </SiteHeaderStyle>
+);
 
 export default SiteHeader;

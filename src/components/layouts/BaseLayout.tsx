@@ -1,11 +1,12 @@
-import Head from 'next/head';
 import React from 'react';
 
-import {css, Global} from '@emotion/core';
+import Head from 'next/head';
+
+import { css, Global } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import SiteHeader from '../SiteHeader';
 import SiteFooter from '../SiteFooter';
+import SiteHeader from '../SiteHeader';
 
 const mq = {
   sm: `@media (min-width: 640px)`,
@@ -15,8 +16,8 @@ const mq = {
 };
 
 const SiteWidth = styled.section`
-  max-width: 40rem;
-  margin: var(--site-edge-margin-v) var(--site-edge-margin-h);
+  max-width: 48rem;
+  margin: 0 auto;
 `;
 
 interface BaseLayoutProps {
@@ -50,7 +51,7 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
             font-family: Recursive, mono;
             background-color: #fbfbfb;
             color: #403f53;
-            padding: 0;
+            padding: var(--site-edge-margin-v) var(--site-edge-margin-h);
             margin: 0;
           }
 
@@ -58,9 +59,14 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
             line-height: 1.5em;
           }
 
+          ul li {
+            min-height: 1.5rem;
+          }
+
           :root {
             --site-edge-margin-v: 1rem;
             --site-edge-margin-h: 2rem;
+            --color-accent: #285ba9;
 
             ${mq.md} {
               --site-edge-margin-v: 2rem;
@@ -70,9 +76,8 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
         `}
       />
 
-      <SiteHeader></SiteHeader>
-
       <SiteWidth>
+        <SiteHeader></SiteHeader>
         {children}
 
         <SiteFooter />
