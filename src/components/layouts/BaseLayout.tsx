@@ -30,15 +30,11 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
       <Head>
         <title>zacharytamas{pageTitle && ` | ${pageTitle}`}</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@400;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
-
-      <style jsx>{`
-        @font-face {
-          font-family: 'Recursive';
-          src: url('/Recursive.woff2') format('woff2-variations');
-          font-weight: 300 1000;
-        }
-      `}</style>
 
       <Global
         styles={css`
@@ -48,11 +44,12 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => {
           }
 
           body {
-            font-family: Recursive, mono;
+            font-family: 'Quattrocento Sans', sans-serif;
             background-color: #fbfbfb;
             color: #403f53;
             padding: var(--site-edge-margin-v) var(--site-edge-margin-h);
             margin: 0;
+            font-size: 1.125rem;
           }
 
           p {
