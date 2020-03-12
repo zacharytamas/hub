@@ -1,10 +1,12 @@
 import React from 'react';
 
+import Link from 'next/link';
+
 import styled from '@emotion/styled';
 
 const SiteHeaderStyle = styled.header`
   display: flex;
-  height: 5rem;
+  height: 4rem;
   align-items: center;
   margin-bottom: 1rem;
 
@@ -13,6 +15,8 @@ const SiteHeaderStyle = styled.header`
   .brand {
     font-weight: 600;
     font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.56);
+    text-decoration: none;
 
     &:hover {
       color: rgba(0, 0, 0, 0.87);
@@ -23,7 +27,9 @@ const SiteHeaderStyle = styled.header`
 
 const SiteHeader = () => (
   <SiteHeaderStyle>
-    <div className="brand">@zacharytamas</div>
+    <Link href="/">
+      <a className="brand">@zacharytamas</a>
+    </Link>
   </SiteHeaderStyle>
 );
 
