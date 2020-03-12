@@ -1,15 +1,13 @@
 import React from 'react';
 
-import {BaseLayout} from '../components/layouts';
-import {H1} from '../components/typography';
-
+import { BaseLayout } from '../components/layouts';
+import { H1 } from '../components/typography';
 import About from '../content/about.mdx';
 
 const Home = () => (
   <BaseLayout>
-    <div style={{marginTop: '3rem'}}>
-      <H1>Hi, I'm Zachary.</H1>
-
+    <div>
+      <H1 style={{color: 'var(--color-accent)'}}>Hi, I'm Zachary.</H1>
       <About />
     </div>
   </BaseLayout>
