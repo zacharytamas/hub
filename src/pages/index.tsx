@@ -7,7 +7,7 @@ import About from '../content/about.mdx';
 const Home = () => (
   <BaseLayout>
     <div>
-      <H1 style={{color: 'var(--color-accent)'}}>Hi, I'm Zachary.</H1>
+      <H1>Hi, I'm Zachary.</H1>
       <About />
     </div>
   </BaseLayout>
