@@ -1,0 +1,45 @@
+$textMarginBottom: 1.125rem;
+
+/*! purgecss start ignore */
+@tailwind base;
+
+body {
+  font-family: 'Quattrocento Sans', sans-serif;
+  @apply text-lg;
+}
+
+h1 {
+  @apply font-bold;
+  @apply text-4xl;
+  @apply leading-loose;
+}
+
+p {
+  @apply leading-8;
+  margin-bottom: $textMarginBottom;
+}
+
+ul {
+  @apply list-disc;
+  @apply list-inside;
+  margin-bottom: $textMarginBottom;
+
+  li {
+    @apply leading-8;
+  }
+}
+
+a {
+  @apply text-blue-600;
+  @apply underline;
+
+  &:hover {
+    @apply text-blue-700;
+    @apply no-underline;
+    @apply font-bold;
+  }
+}
+
+@tailwind components;
+/*! purgecss end ignore */
+@tailwind utilities;
