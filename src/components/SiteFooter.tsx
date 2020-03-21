@@ -1,15 +1,9 @@
 import React from 'react';
-import styled from '@emotion/styled';
-
-const SiteFooterStyled = styled.footer`
-  border-top: 2px #90a7b2 solid;
-  display: inline-block;
-  padding-top: 1rem;
-  margin-top: 1rem;
-`;
 
 export default () => (
-  <SiteFooterStyled>
-    &copy; {new Date().getFullYear()} Zachary Jones
-  </SiteFooterStyled>
+  <footer className="mt-8 border-t-2 pt-4">
+    <div className="text-gray-500 text-center">
+      &copy; {new Date().getFullYear()} Zachary Jones. All rights reserved.
+    </div>
+  </footer>
 );
