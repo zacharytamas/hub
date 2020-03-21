@@ -18,10 +18,27 @@ body {
   }
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4 {
   @apply font-bold;
+}
+
+h1 {
   @apply text-4xl;
   @apply leading-loose;
+}
+
+h2 {
+  @apply text-3xl;
+  @apply leading-relaxed;
+  @apply text-gray-800;
+}
+
+hr {
+  @apply border-t-2;
+  @apply my-4;
 }
 
 p {
