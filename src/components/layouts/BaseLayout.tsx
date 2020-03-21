@@ -4,13 +4,14 @@ import Head from 'next/head';
 
 import SiteFooter from '../SiteFooter';
 import SiteHeader from '../SiteHeader';
+import SiteWidth from './SiteWidth';
 
 interface BaseLayoutProps {
   pageTitle?: string;
 }
 
 const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => (
-  <div className="p-8">
+  <div>
     <Head>
       <title>zacharytamas{pageTitle && ` | ${pageTitle}`}</title>
       <link rel="icon" href="/favicon.ico" />
@@ -20,11 +21,12 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => (
       ></link>
     </Head>
 
-    <section className="container mx-auto sm:max-w-xl lg:max-w-2xl">
-      <SiteHeader></SiteHeader>
+    <SiteHeader />
+
+    <SiteWidth>
       {children}
       <SiteFooter />
-    </section>
+    </SiteWidth>
   </div>
 );
 

@@ -6,6 +6,8 @@ $textMarginBottom: 1.125rem;
 body {
   font-family: 'Quattrocento Sans', sans-serif;
   @apply text-lg;
+  @apply font-normal;
+  @apply text-gray-900;
 }
 
 h1 {
@@ -43,3 +45,13 @@ a {
 @tailwind components;
 /*! purgecss end ignore */
 @tailwind utilities;
+
+body {
+  @apply p-8;
+
+  .full-bleed {
+    @apply -m-8;
+    @apply px-8;
+    @apply mb-8;
+  }
+}

@@ -6,7 +6,7 @@ import About from '../content/about.mdx';
 const Home = () => (
   <BaseLayout>
     <div>
-      <h1 className="text-blue-600">Hi, I'm Zachary.</h1>
+      <h1 className="text-blue-600 sm:text-5xl">Hi, I'm Zachary.</h1>
       <About />
     </div>
   </BaseLayout>
