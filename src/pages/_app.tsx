@@ -1,7 +1,10 @@
 import '../style/index.scss';
 
-function MyApp({Component, pageProps}) {
-  return <Component {...pageProps} />;
-}
+import App from 'next/app';
+import Router from 'next/router';
 
-export default MyApp;
+import { pageview } from '../utils/gtag';
+
+Router.events.on('routeChangeComplete', url => pageview(url));
+
+export default App;
