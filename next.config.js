@@ -1,3 +1,6 @@
-const withMDX = require('@next/mdx')();
+const withMdxEnhanced = require('next-mdx-enhanced');
 
-module.exports = withMDX();
+module.exports = withMdxEnhanced({
+  layoutPath: 'src/components/layouts',
+  fileExtensions: ['mdx']
+})();
