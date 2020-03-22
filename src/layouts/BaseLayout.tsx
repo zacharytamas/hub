@@ -2,8 +2,8 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import SiteFooter from '../SiteFooter';
-import SiteHeader from '../SiteHeader';
+import SiteFooter from '../components/SiteFooter';
+import SiteHeader from '../components/SiteHeader';
 
 interface BaseLayoutProps {
   pageTitle?: string;
