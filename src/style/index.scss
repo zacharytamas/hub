@@ -70,3 +70,16 @@ a {
 @tailwind components;
 /*! purgecss end ignore */
 @tailwind utilities;
+
+.site-width {
+  @apply max-w-sm;
+  @apply mx-auto;
+
+  @screen sm {
+    @apply max-w-xl;
+  }
+
+  @screen lg {
+    @apply max-w-2xl;
+  }
+}

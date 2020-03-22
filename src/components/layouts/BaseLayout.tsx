@@ -4,7 +4,6 @@ import Head from 'next/head';
 
 import SiteFooter from '../SiteFooter';
 import SiteHeader from '../SiteHeader';
-import SiteWidth from './SiteWidth';
 
 interface BaseLayoutProps {
   pageTitle?: string;
@@ -18,10 +17,10 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({children, pageTitle}) => (
 
     <SiteHeader />
 
-    <SiteWidth>
+    <main className="site-width">
       {children}
       <SiteFooter />
-    </SiteWidth>
+    </main>
   </div>
 );
 
