@@ -91,6 +91,20 @@ header.site-header {
   .brand {
     @apply text-blue-800;
   }
+
+  .menu-item {
+    @apply text-blue-800;
+
+    &:hover {
+      @apply text-white;
+      @apply bg-blue-500;
+    }
+
+    &:focus {
+      @apply text-white;
+      @apply bg-blue-500;
+    }
+  }
 }
 
 footer.site-footer {
