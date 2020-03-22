@@ -83,3 +83,15 @@ a {
     @apply max-w-2xl;
   }
 }
+
+header.site-header {
+  @apply bg-blue-200;
+
+  .brand {
+    @apply text-blue-800;
+  }
+}
+
+footer.site-footer {
+  @apply text-gray-500;
+}
