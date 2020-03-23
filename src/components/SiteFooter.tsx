@@ -13,7 +13,7 @@ interface FooterSocialLinkProps {
 }
 
 const FooterSocialLink = ({href, Icon, name}: FooterSocialLinkProps) => (
-  <a href={href} target="_blank" className="no-underline">
+  <a href={href} target="_blank" className="no-underline hover:font-normal">
     <Icon className="h-6 lg:h-5 text-gray-700" />
     <span className="hidden ml-1 lg:inline-block text-base">{name}</span>
   </a>
