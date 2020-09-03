@@ -4,7 +4,7 @@ $textMarginBottom: 1.125rem;
 @tailwind base;
 
 body {
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: 'Merriweather', serif;
   @apply text-lg;
   @apply font-normal;
   @apply text-gray-900;
@@ -15,10 +15,6 @@ body {
     @apply -m-8;
     @apply px-8;
     @apply mb-8;
-  }
-
-  @screen lg {
-    @apply text-xl;
   }
 }
 
@@ -32,7 +28,7 @@ h4 {
 h1 {
   @apply text-4xl;
   @apply leading-loose;
-  @apply text-blue-600;
+  @apply text-purple-600;
 }
 
 h2 {
@@ -47,7 +43,7 @@ hr {
 }
 
 p {
-  @apply leading-8;
+  @apply leading-9;
   margin-bottom: $textMarginBottom;
 }
 
@@ -62,11 +58,11 @@ ul {
 }
 
 a {
-  @apply text-blue-600;
+  @apply text-purple-600;
   @apply underline;
 
   &:hover {
-    @apply text-blue-700;
+    @apply text-purple-700;
     @apply no-underline;
     @apply font-bold;
   }
@@ -90,27 +86,28 @@ a {
 }
 
 header.site-header {
-  @apply bg-blue-200;
+  @apply bg-purple-200;
 
   .brand {
-    @apply text-blue-800;
+    @apply text-purple-800;
   }
 
   .menu-item {
-    @apply text-blue-800;
+    @apply text-purple-800;
 
     &:hover {
       @apply text-white;
-      @apply bg-blue-500;
+      @apply bg-purple-500;
     }
 
     &:focus {
       @apply text-white;
-      @apply bg-blue-500;
+      @apply bg-purple-500;
     }
   }
 }
 
 footer.site-footer {
   @apply text-gray-500;
+  @apply text-base;
 }

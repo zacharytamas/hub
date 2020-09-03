@@ -4,6 +4,13 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 import { GA_TRACKING_ID } from '../utils/gtag';
 
+const googleAnalyticsCode = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname});
+`;
+
 export default class extends Document {
   render() {
     return (
@@ -16,16 +23,12 @@ export default class extends Document {
           />
           <script
             dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {page_path: window.location.pathname});`
+              __html: googleAnalyticsCode
             }}
           />
           <link rel="icon" href="/favicon.ico" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
             rel="stylesheet"
           ></link>
         </Head>
