@@ -9,10 +9,12 @@ interface Frontmatter {
 
 const dateFormatter = new Intl.DateTimeFormat('all', {});
 
-export default ({title, date}: Frontmatter) => ({children: content}) => (
+const PostLayout = ({title, date}: Frontmatter) => ({children: content}) => (
   <BaseLayout pageTitle={title}>
     <h1>{title}</h1>
     {date && <p>{dateFormatter.format(date)}</p>}
     {content}
   </BaseLayout>
 );
+
+export default PostLayout;
