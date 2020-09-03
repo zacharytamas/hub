@@ -16,6 +16,10 @@ body {
     @apply px-8;
     @apply mb-8;
   }
+
+  @screen lg {
+    @apply text-xl;
+  }
 }
 
 h1,

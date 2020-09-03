@@ -13,7 +13,7 @@ interface FooterSocialLinkProps {
 }
 
 const FooterSocialLink = ({href, Icon, name}: FooterSocialLinkProps) => (
-  <a href={href} target="_blank" className="no-underline">
+  <a href={href} target="_blank" className="no-underline hover:font-normal">
     <Icon className="h-6 lg:h-5 text-gray-700" />
     <span className="hidden ml-1 lg:inline-block text-base">{name}</span>
   </a>
@@ -39,7 +39,7 @@ const FooterSocialLinks = () => (
   </div>
 );
 
-export default () => (
+const SiteFooter = () => (
   <footer className="site-footer mt-8 border-t-2 pt-4">
     <div className="flex flex-col sm:flex-row-reverse">
       <FooterSocialLinks />
@@ -50,3 +50,5 @@ export default () => (
     </div>
   </footer>
 );
+
+export default SiteFooter;
