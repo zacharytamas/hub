@@ -39,7 +39,7 @@ const FooterSocialLinks = () => (
   </div>
 );
 
-export default () => (
+const SiteFooter = () => (
   <footer className="site-footer mt-8 border-t-2 pt-4">
     <div className="flex flex-col sm:flex-row-reverse">
       <FooterSocialLinks />
@@ -50,3 +50,5 @@ export default () => (
     </div>
   </footer>
 );
+
+export default SiteFooter;

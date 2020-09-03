@@ -2,6 +2,8 @@ import React from 'react';
 
 import BaseLayout from './BaseLayout';
 
-export default () => ({children: content}) => (
+const HomeLayout = () => ({children: content}) => (
   <BaseLayout>{content}</BaseLayout>
 );
+
+export default HomeLayout;
