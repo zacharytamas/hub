@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 
 import { Link } from 'gatsby';
 
-const MenuIcon = ({open}: {open: boolean}) => (
-  <svg
-    className="h-6 w-6"
-    stroke="currentColor"
-    fill="none"
-    viewBox="0 0 24 24"
-  >
+interface MenuIconProps {
+  open: boolean;
+}
+
+const MenuIcon = ({ open }: MenuIconProps) => (
+  <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
     <path
       className={open ? 'hidden' : 'inline-flex'}
       strokeLinecap="round"
@@ -26,7 +25,6 @@ const MenuIcon = ({open}: {open: boolean}) => (
   </svg>
 );
 
-
 const SiteHeader = () => {
   const [open, setOpen] = useState(false);
 
@@ -35,20 +33,19 @@ const SiteHeader = () => {
       <nav>
         <div className="site-width flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/">
-              <a className="brand font-bold no-underline">@zacharytamas</a>
+            <Link to="/" className="brand font-bold no-underline">
+              @zacharytamas
             </Link>
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
-              onClick={() => setOpen(o => !o)}
+              onClick={() => setOpen((o) => !o)}
               className="inline-flex items-center justify-center p-1 rounded-md text-blue-800 hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:text-white"
             >
               <MenuIcon open={open} />
             </button>
           </div>
         </div>
-
       </nav>
     </header>
   );
