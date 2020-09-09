@@ -3,29 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
     "classnames": "^2.2.6",
-    "emotion": "^10.0.27",
-    "next": "^9.5.3",
-    "next-mdx-enhanced": "^2.4.0",
+    "gatsby": "^2.24.56",
+    "gatsby-image": "^2.4.17",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.4.28",
+    "gatsby-plugin-offline": "^3.2.27",
+    "gatsby-plugin-postcss": "^2.3.11",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-plugin-sharp": "^2.6.32",
+    "gatsby-plugin-typescript": "^2.4.19",
+    "gatsby-source-filesystem": "^2.3.28",
+    "gatsby-transformer-sharp": "^2.5.14",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "sass": "^1.26.3"
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@babel/core": "^7.11.6",
     "@types/classnames": "^2.2.10",
     "@types/node": "^13.9.2",
     "@types/react": "^16.9.25",
+    "@types/react-helmet": "^6.1.0",
+    "node-sass": "^4.14.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.1",
-    "tailwindcss": "^1.7.6",
-    "typescript": "^3.8.3"
+    "tailwindcss": "^1.8.6",
+    "typescript": "^4.0.2"
   }
 }
