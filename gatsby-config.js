@@ -8,7 +8,7 @@ module.exports = {
     title: `zacharytamas`,
     siteUrl: `https://zacharytamas.com`,
     description: `The personal website of Zachary Jones`,
-    author: 'Zachary Jones'
+    author: 'Zachary Jones',
   },
 
   plugins: [
@@ -20,6 +20,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `entries`,
+        path: `${__dirname}/content/entries`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
@@ -28,11 +35,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Merriweather\:400,700`,
-        ],
-        display: 'swap'
-      }
+        fonts: [`Merriweather\:400,700`],
+        display: 'swap',
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -46,8 +51,17 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    { resolve: 'gatsby-plugin-sass', options: {
-      postCssPlugins: [require('tailwindcss'), require('./tailwind.config')]
-    }}
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: { postCssPlugins: [require('tailwindcss'), require('./tailwind.config')] },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/Layout.tsx'),
+        },
+      },
+    },
   ],
 };
