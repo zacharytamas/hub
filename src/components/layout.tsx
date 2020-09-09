@@ -12,7 +12,6 @@ import '../styles/styles.scss';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Header from './header';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
@@ -25,10 +24,9 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-
     <div className="full-bleed">
       <SiteHeader />
       <main className="site-width">
@@ -36,12 +34,11 @@ const Layout = ({ children }) => {
         <SiteFooter />
       </main>
     </div>
-
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
