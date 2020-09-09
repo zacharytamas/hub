@@ -1,7 +1,5 @@
 import React from 'react';
 
-import cn from 'classnames';
-
 import GitHubIcon from './icons/GitHubIcon';
 import LinkedInIcon from './icons/LinkedInIcon';
 import TwitterIcon from './icons/TwitterIcon';
