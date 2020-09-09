@@ -37,14 +37,6 @@ const SiteHeader = () => {
               @zacharytamas
             </Link>
           </div>
-          <div className="-mr-2 flex md:hidden">
-            <button
-              onClick={() => setOpen((o) => !o)}
-              className="inline-flex items-center justify-center p-1 rounded-md text-blue-800 hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:text-white"
-            >
-              <MenuIcon open={open} />
-            </button>
-          </div>
         </div>
       </nav>
     </header>
