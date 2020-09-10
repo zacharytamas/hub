@@ -5,11 +5,17 @@ $textMarginBottom: 1.125rem;
 
 body {
   font-family: 'Merriweather', serif;
-  @apply text-lg;
   @apply font-normal;
   @apply text-gray-900;
 
+  @apply bg-gray-100;
+  @apply bg-opacity-50;
+
   @apply p-8;
+
+  @screen sm {
+    @apply text-lg;
+  }
 
   .full-bleed {
     @apply -m-8;
@@ -28,7 +34,7 @@ h4 {
 h1 {
   @apply text-4xl;
   @apply leading-loose;
-  @apply text-purple-600;
+  @apply text-green-600;
 }
 
 h2 {
@@ -58,11 +64,11 @@ ul {
 }
 
 a {
-  @apply text-purple-600;
+  @apply text-gray-600;
   @apply underline;
 
   &:hover {
-    @apply text-purple-700;
+    @apply text-gray-700;
     @apply no-underline;
     @apply font-bold;
   }
@@ -86,23 +92,24 @@ a {
 }
 
 header.site-header {
-  @apply bg-purple-200;
+  @apply bg-white;
+  @apply shadow;
 
   .brand {
-    @apply text-purple-800;
+    @apply text-gray-800;
   }
 
   .menu-item {
-    @apply text-purple-800;
+    @apply text-gray-800;
 
     &:hover {
       @apply text-white;
-      @apply bg-purple-500;
+      @apply bg-gray-500;
     }
 
     &:focus {
       @apply text-white;
-      @apply bg-purple-500;
+      @apply bg-gray-500;
     }
   }
 }
