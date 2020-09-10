@@ -4,6 +4,10 @@ import { EntryNode } from '../types';
 
 export interface EntryExcerptNode extends EntryNode {
   excerpt: string;
+  parent: {
+    changeTimeFormatted: string;
+    changeTime: string;
+  };
 }
 
 const useEntries = () => {
@@ -17,6 +21,16 @@ const useEntries = () => {
           }
 
           excerpt
+
+          parent {
+            id
+            ... on File {
+              id
+              name
+              changeTime
+              changeTimeFormatted: changeTime(formatString: "Do MMMM YYYY")
+            }
+          }
         }
       }
     }
