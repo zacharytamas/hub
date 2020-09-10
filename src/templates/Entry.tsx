@@ -11,18 +11,37 @@ export const query = graphql`
       frontmatter {
         title
       }
-
       body
+      parent {
+        id
+        ... on File {
+          id
+          name
+          changeTime(formatString: "Do MMMM YYYY")
+          birthTime(formatString: "Do MMMM YYYY")
+        }
+      }
     }
   }
 `;
 
 export default ({ data: { mdx: entry } }) => {
+  const { changeTime, birthTime } = entry.parent;
+  const { title } = entry.frontmatter;
+  const { body } = entry;
+
   return (
     <Layout>
-      <h1>{entry.frontmatter.title}</h1>
+      <h1>{title}</h1>
 
-      <MDXRenderer>{entry.body}</MDXRenderer>
+      <section className="mb-4">
+        <span>
+          Published: {birthTime}{' '}
+          {birthTime !== changeTime && <> | Updated {changeTime}</>}
+        </span>
+      </section>
+
+      <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   );
 };
