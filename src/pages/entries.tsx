@@ -13,7 +13,7 @@ export default () => {
 
       <div>
         {entries
-          .sort((a, b) => (a.parent.changeTime < b.parent.changeTime ? 1 : -1))
+          .sort((a, b) => (a.parent.modifiedTime < b.parent.modifiedTime ? 1 : -1))
           .map((entry) => (
             <EntryPreview key={entry.frontmatter.slug} entry={entry} />
           ))}

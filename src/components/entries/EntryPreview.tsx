@@ -12,7 +12,7 @@ const EntryPreview = ({ entry }: EntryPreviewProps) => {
   const {
     excerpt,
     frontmatter: { title, slug },
-    parent: { changeTimeFormatted },
+    parent: { modifiedTimeFormatted },
   } = entry;
 
   return (
@@ -21,7 +21,7 @@ const EntryPreview = ({ entry }: EntryPreviewProps) => {
         <Link to={`/entries/${slug}`}>
           <b>{title}</b>
         </Link>
-        <span className="ml-4 text-gray-500">updated {changeTimeFormatted}</span>
+        <span className="ml-4 text-gray-500">updated {modifiedTimeFormatted}</span>
       </div>
       <p>{excerpt}</p>
     </div>

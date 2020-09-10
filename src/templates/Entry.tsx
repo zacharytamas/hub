@@ -17,7 +17,7 @@ export const query = graphql`
         ... on File {
           id
           name
-          changeTime(formatString: "Do MMMM YYYY")
+          modifiedTime(formatString: "Do MMMM YYYY")
           birthTime(formatString: "Do MMMM YYYY")
         }
       }
@@ -26,7 +26,7 @@ export const query = graphql`
 `;
 
 export default ({ data: { mdx: entry } }) => {
-  const { changeTime, birthTime } = entry.parent;
+  const { modifiedTime, birthTime } = entry.parent;
   const { title } = entry.frontmatter;
   const { body } = entry;
 
@@ -37,7 +37,7 @@ export default ({ data: { mdx: entry } }) => {
       <section className="mb-4">
         <span>
           Published: {birthTime}{' '}
-          {birthTime !== changeTime && <> | Updated {changeTime}</>}
+          {birthTime !== modifiedTime && <> | Updated {modifiedTime}</>}
         </span>
       </section>
 
