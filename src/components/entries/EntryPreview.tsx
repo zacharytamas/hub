@@ -16,12 +16,14 @@ const EntryPreview = ({ entry }: EntryPreviewProps) => {
   } = entry;
 
   return (
-    <div>
+    <div className="mb-4">
       <div>
         <Link to={`/entries/${slug}`}>
-          <b>{title}</b>
+          <b className="text-xl sm:text-2xl">{title}</b>
         </Link>
-        <span className="ml-4 text-gray-500">updated {modifiedTimeFormatted}</span>
+        <span className="block text-gray-500 sm:ml-4 sm:inline">
+          updated {modifiedTimeFormatted}
+        </span>
       </div>
       <p>{excerpt}</p>
     </div>
