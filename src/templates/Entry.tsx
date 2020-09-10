@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 export const query = graphql`
   query($slug: String!) {
@@ -32,6 +33,7 @@ export default ({ data: { mdx: entry } }) => {
 
   return (
     <Layout>
+      <SEO title={title} />
       <h1>{title}</h1>
 
       <section className="mb-4">
