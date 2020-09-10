@@ -12,9 +12,11 @@ export default () => {
       <h1>Entries</h1>
 
       <div>
-        {entries.map((entry) => (
-          <EntryPreview key={entry.frontmatter.slug} entry={entry} />
-        ))}
+        {entries
+          .sort((a, b) => (a.parent.changeTime < b.parent.changeTime ? 1 : -1))
+          .map((entry) => (
+            <EntryPreview key={entry.frontmatter.slug} entry={entry} />
+          ))}
       </div>
     </Layout>
   );
