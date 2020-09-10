@@ -9,23 +9,12 @@ import React from 'react';
 
 import '../styles/styles.scss';
 
-import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <div className="full-bleed">
       <SiteHeader />
