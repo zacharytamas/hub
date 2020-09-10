@@ -1,15 +1,17 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-interface QueryNode {
-  frontmatter: {
-    title: string;
-    slug: string;
-  };
+import { EntryNode } from '../types';
+
+export interface EntryExcerptNode extends EntryNode {
   excerpt: string;
+  parent: {
+    changeTimeFormatted: string;
+    changeTime: string;
+  };
 }
 
 const useEntries = () => {
-  const entries = useStaticQuery<{ allMdx: { nodes: QueryNode[] } }>(graphql`
+  const entries = useStaticQuery<{ allMdx: { nodes: EntryExcerptNode[] } }>(graphql`
     query {
       allMdx {
         nodes {
@@ -19,18 +21,22 @@ const useEntries = () => {
           }
 
           excerpt
+
+          parent {
+            id
+            ... on File {
+              id
+              name
+              changeTime
+              changeTimeFormatted: changeTime(formatString: "Do MMMM YYYY")
+            }
+          }
         }
       }
     }
   `);
 
-  return entries.allMdx.nodes.map(
-    ({ excerpt, frontmatter: { title, slug } }: QueryNode) => ({
-      title,
-      excerpt,
-      slug,
-    })
-  );
+  return entries.allMdx.nodes;
 };
 
 export default useEntries;

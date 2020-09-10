@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-
+import EntryPreview from '../components/entries/EntryPreview';
 import Layout from '../components/Layout';
 import useEntries from '../hooks/useEntries';
 
@@ -13,14 +12,11 @@ export default () => {
       <h1>Entries</h1>
 
       <div>
-        {entries.map((entry) => (
-          <div key={entry.slug}>
-            <Link to={`/entries/${entry.slug}`}>
-              <b>{entry.title}</b>
-            </Link>
-            <p>{entry.excerpt}</p>
-          </div>
-        ))}
+        {entries
+          .sort((a, b) => (a.parent.changeTime < b.parent.changeTime ? 1 : -1))
+          .map((entry) => (
+            <EntryPreview key={entry.frontmatter.slug} entry={entry} />
+          ))}
       </div>
     </Layout>
   );
