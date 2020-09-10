@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { graphql } from 'gatsby';
+import cn from 'classnames';
+import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
@@ -26,6 +27,15 @@ export const query = graphql`
   }
 `;
 
+const tailwindScoped = (prefix: string) => (classes: string) =>
+  classes
+    .split(' ')
+    .map((c) => `${prefix}:${c}`)
+    .join(' ');
+
+const sm = tailwindScoped('sm');
+const md = tailwindScoped('md');
+
 export default ({ data: { mdx: entry } }) => {
   const { modifiedTime, birthTime } = entry.parent;
   const { title } = entry.frontmatter;
@@ -34,16 +44,22 @@ export default ({ data: { mdx: entry } }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <h1>{title}</h1>
+      <div className="relative">
+        <h1 className={cn('text-3xl font-extrabold', sm('text-4xl'))}>{title}</h1>
 
-      <section className="mb-4">
-        <span>
-          Published: {birthTime}{' '}
-          {birthTime !== modifiedTime && <> | Updated {modifiedTime}</>}
-        </span>
-      </section>
+        <section className={cn('mb-4 my-2 text-sm', sm('text-base'))}>
+          <span>
+            <b>Published:</b> {birthTime}
+            {birthTime !== modifiedTime && <> | Updated {modifiedTime}</>}
+          </span>
+        </section>
 
-      <MDXRenderer>{body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
+
+        <div className="border-t py-4">
+          <Link to="/entries">&larr; back to all entries</Link>
+        </div>
+      </div>
     </Layout>
   );
 };
