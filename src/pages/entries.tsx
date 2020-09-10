@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-
+import EntryPreview from '../components/entries/EntryPreview';
 import Layout from '../components/Layout';
 import useEntries from '../hooks/useEntries';
 
@@ -14,12 +13,7 @@ export default () => {
 
       <div>
         {entries.map((entry) => (
-          <div key={entry.slug}>
-            <Link to={`/entries/${entry.slug}`}>
-              <b>{entry.title}</b>
-            </Link>
-            <p>{entry.excerpt}</p>
-          </div>
+          <EntryPreview key={entry.frontmatter.slug} entry={entry} />
         ))}
       </div>
     </Layout>
