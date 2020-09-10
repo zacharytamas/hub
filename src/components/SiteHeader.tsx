@@ -34,7 +34,7 @@ const SiteHeader = () => {
         <div className="site-width flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="brand font-bold no-underline">
-              @zacharytamas
+              zacharytamas
             </Link>
           </div>
         </div>
