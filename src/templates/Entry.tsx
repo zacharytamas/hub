@@ -1,10 +1,11 @@
 import React from 'react';
 
 import cn from 'classnames';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/Layout';
+import LinkWithArrow from '../components/LinkWithArrow';
 import SEO from '../components/SEO';
 
 export const query = graphql`
@@ -57,7 +58,9 @@ export default ({ data: { mdx: entry } }) => {
         <MDXRenderer>{body}</MDXRenderer>
 
         <div className="border-t py-4">
-          <Link to="/entries">&larr; back to all entries</Link>
+          <LinkWithArrow arrowSide="left" to="/entries">
+            back to all entries
+          </LinkWithArrow>
         </div>
       </div>
     </Layout>
