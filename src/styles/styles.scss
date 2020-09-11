@@ -4,7 +4,7 @@ $textMarginBottom: 1.125rem;
 @tailwind base;
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Nunito Sans', serif;
   @apply font-normal;
   @apply text-gray-900;
 
@@ -48,8 +48,11 @@ hr {
 }
 
 p {
-  @apply leading-9;
   margin-bottom: $textMarginBottom;
+
+  @screen sm {
+    @apply leading-relaxed;
+  }
 }
 
 ul {
@@ -96,6 +99,12 @@ header.site-header {
 
   .brand {
     @apply text-gray-800;
+    @apply text-lg;
+    @apply text-center;
+
+    @screen sm {
+      @apply text-left;
+    }
   }
 }
 
