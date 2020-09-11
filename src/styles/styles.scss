@@ -8,8 +8,7 @@ body {
   @apply font-normal;
   @apply text-gray-900;
 
-  @apply bg-gray-100;
-  @apply bg-opacity-50;
+  @apply bg-white;
 
   @apply p-8;
 
@@ -64,11 +63,11 @@ ul {
 }
 
 a {
-  @apply text-gray-600;
+  @apply text-green-600;
   @apply underline;
 
   &:hover {
-    @apply text-gray-700;
+    @apply text-green-700;
     @apply no-underline;
     @apply font-bold;
   }
@@ -97,20 +96,6 @@ header.site-header {
 
   .brand {
     @apply text-gray-800;
-  }
-
-  .menu-item {
-    @apply text-gray-800;
-
-    &:hover {
-      @apply text-white;
-      @apply bg-gray-500;
-    }
-
-    &:focus {
-      @apply text-white;
-      @apply bg-gray-500;
-    }
   }
 }
 
