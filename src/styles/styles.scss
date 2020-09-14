@@ -89,7 +89,7 @@ a {
   }
 
   @screen lg {
-    @apply max-w-3xl;
+    @apply max-w-2xl;
   }
 }
 
@@ -103,7 +103,6 @@ header.site-header {
     @apply text-center;
 
     @screen sm {
-      @apply text-xl;
       @apply text-left;
     }
   }
