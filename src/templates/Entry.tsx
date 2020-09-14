@@ -29,9 +29,11 @@ export default ({ data: { mdx: entry } }) => {
     <Layout>
       <SEO title={title} />
       <div className="relative">
-        <h1 className={cn('text-3xl font-extrabold', sm('text-4xl'))}>{title}</h1>
+        <h1 className={cn('text-3xl font-extrabold', sm('text-5xl'))}>{title}</h1>
 
-        <section className={cn('mb-4 my-2 text-sm', sm('text-base'))}>
+        <section
+          className={cn('mb-4 my-2 text-sm text-gray-600 font-medium', sm('text-base'))}
+        >
           <span>{datePublished}</span>
         </section>
 

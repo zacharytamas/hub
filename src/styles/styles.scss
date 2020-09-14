@@ -103,6 +103,7 @@ header.site-header {
     @apply text-center;
 
     @screen sm {
+      @apply text-xl;
       @apply text-left;
     }
   }
