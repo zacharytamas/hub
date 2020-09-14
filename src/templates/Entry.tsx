@@ -7,6 +7,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout';
 import LinkWithArrow from '../components/LinkWithArrow';
 import SEO from '../components/SEO';
+import { sm } from '../utils/tailwind-scoped';
 
 export const query = graphql`
   query($slug: String!) {
@@ -19,15 +20,6 @@ export const query = graphql`
     }
   }
 `;
-
-const tailwindScoped = (prefix: string) => (classes: string) =>
-  classes
-    .split(' ')
-    .map((c) => `${prefix}:${c}`)
-    .join(' ');
-
-const sm = tailwindScoped('sm');
-const md = tailwindScoped('md');
 
 export default ({ data: { mdx: entry } }) => {
   const { title, datePublished } = entry.frontmatter;
