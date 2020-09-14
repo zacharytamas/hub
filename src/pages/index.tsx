@@ -11,20 +11,31 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1 className="sm:text-5xl">Hi, I'm Zachary.</h1>
+      <h1 className="text-4xl mb-4 mt-8 sm:text-5xl">
+        <span className="text-4xl mr-3 tracking-tighter inline-block sm:text-5xl">
+          👋🏼
+        </span>
+        <span>
+          Hi, I'm Zachary<span className="hidden sm:inline">.</span>
+        </span>
+      </h1>
 
-      <p>
-        I'm a software craftsman with 20+ years' experience living in Atlanta,&nbsp;GA.
+      <p className="text-xl font-semibold">
+        I'm a multidisciplinary problem solver with 20+ years' experience living in
+        Atlanta, Georgia.
       </p>
 
       <p>
-        I currently work at <a href="https://squareup.com/">Square</a> as a Senior
-        Software Engineer building large-scale global payments infrastructure.
-      </p>
-
-      <p>
-        I craft digital experiences that are usually, but not always, on the Web and use
+        I craft digital solutions that are usually, but not always, on the Web and use
         modern tools with an emphasis on tool-building and efficiency.
+      </p>
+
+      <p>
+        I currently work at{' '}
+        <a href="https://squareup.com/" target="_blank">
+          Square
+        </a>{' '}
+        as a Senior Software Engineer building large-scale global payments infrastructure.
       </p>
 
       <section className="border-t-2 border-gray-300 pt-8">
