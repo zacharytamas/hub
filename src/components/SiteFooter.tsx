@@ -6,11 +6,11 @@ import TwitterIcon from './icons/TwitterIcon';
 
 interface FooterSocialLinkProps {
   href: string;
-  Icon: React.FC<{className?: string}>;
+  Icon: React.FC<{ className?: string }>;
   name: string;
 }
 
-const FooterSocialLink = ({href, Icon, name}: FooterSocialLinkProps) => (
+const FooterSocialLink = ({ href, Icon, name }: FooterSocialLinkProps) => (
   <a href={href} target="_blank" className="no-underline hover:font-normal">
     <Icon className="h-6 lg:h-5 text-gray-700" />
     <span className="hidden ml-1 lg:inline-block text-base">{name}</span>
@@ -42,8 +42,8 @@ const SiteFooter = () => (
     <div className="flex flex-col sm:flex-row-reverse">
       <FooterSocialLinks />
       <div className="text-center sm:flex-auto sm:text-left">
-        &copy; {new Date().getFullYear()} Zachary Jones.{' '}
-        <span className="block sm:inline">All rights reserved.</span>
+        &copy; 2008-{new Date().getFullYear()}.
+        <span className="block sm:ml-2 sm:inline-block">All rights reserved.</span>
       </div>
     </div>
   </footer>
