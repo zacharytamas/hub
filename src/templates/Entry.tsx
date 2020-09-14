@@ -37,9 +37,11 @@ export default ({ data: { mdx: entry } }) => {
           <span>{datePublished}</span>
         </section>
 
-        <MDXRenderer>{body}</MDXRenderer>
+        <div className="prose sm:prose-lg">
+          <MDXRenderer>{body}</MDXRenderer>
+        </div>
 
-        <div className="border-t py-4">
+        <div className="border-t mt-8 py-4">
           <LinkWithArrow arrowSide="left" to="/entries">
             back to all entries
           </LinkWithArrow>
