@@ -13,17 +13,9 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        datePublished(formatString: "Do MMMM YYYY")
       }
       body
-      parent {
-        id
-        ... on File {
-          id
-          name
-          modifiedTime(formatString: "Do MMMM YYYY")
-          birthTime(formatString: "Do MMMM YYYY")
-        }
-      }
     }
   }
 `;
@@ -38,8 +30,7 @@ const sm = tailwindScoped('sm');
 const md = tailwindScoped('md');
 
 export default ({ data: { mdx: entry } }) => {
-  const { modifiedTime, birthTime } = entry.parent;
-  const { title } = entry.frontmatter;
+  const { title, datePublished } = entry.frontmatter;
   const { body } = entry;
 
   return (
@@ -49,10 +40,7 @@ export default ({ data: { mdx: entry } }) => {
         <h1 className={cn('text-3xl font-extrabold', sm('text-4xl'))}>{title}</h1>
 
         <section className={cn('mb-4 my-2 text-sm', sm('text-base'))}>
-          <span>
-            <b>Published:</b> {birthTime}
-            {birthTime !== modifiedTime && <> | Updated {modifiedTime}</>}
-          </span>
+          <span>{datePublished}</span>
         </section>
 
         <MDXRenderer>{body}</MDXRenderer>
