@@ -15,12 +15,12 @@ const IndexPage = () => {
         <span className="text-4xl mr-3 tracking-tighter inline-block sm:text-5xl">
           👋🏼
         </span>
-        <span>
+        <span className="fancy-text">
           Hi, I'm Zachary<span className="hidden sm:inline">.</span>
         </span>
       </h1>
 
-      <p className="text-xl font-semibold">
+      <p className="text-xl font-semibold sm:text-3xl sm:leading-snug">
         I'm a multidisciplinary problem solver with 20+ years' experience living in
         Atlanta, Georgia.
       </p>

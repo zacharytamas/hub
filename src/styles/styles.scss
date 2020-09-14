@@ -1,4 +1,6 @@
 $textMarginBottom: 1.125rem;
+$purple-dark: #a18cd1;
+$purple-light: #fbc2eb;
 
 /*! purgecss start ignore */
 @tailwind base;
@@ -33,7 +35,7 @@ h4 {
 h1 {
   @apply text-4xl;
   @apply leading-loose;
-  @apply text-green-600;
+  color: $purple-dark;
 }
 
 h2 {
@@ -66,11 +68,11 @@ ul {
 }
 
 a {
-  @apply text-green-600;
+  color: $purple-dark;
   @apply underline;
 
   &:hover {
-    @apply text-green-700;
+    color: $purple-light;
     @apply no-underline;
     @apply font-bold;
   }
@@ -111,4 +113,13 @@ header.site-header {
 footer.site-footer {
   @apply text-gray-500;
   @apply text-base;
+}
+
+.fancy-text {
+  background-color: #a18cd1;
+
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
