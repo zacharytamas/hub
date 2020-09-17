@@ -35,7 +35,8 @@ const IndexPage = () => {
         <a href="https://squareup.com/" target="_blank">
           Square
         </a>{' '}
-        as a Senior Software Engineer building large-scale global payments infrastructure.
+        as a Senior Software Engineer on platform infrastructure tooling. My work is seen
+        and used by nearly every engineer at Square.
       </p>
 
       <section className="border-t-2 border-gray-300 pt-8">
