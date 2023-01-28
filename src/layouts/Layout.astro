@@ -1,5 +1,6 @@
 ---
 import '../styles/base.css'
+import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
 
 export interface Props {
@@ -28,17 +29,7 @@ const {
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <GoogleFont />
-
-    <script is:inline>
-      ;(function () {
-        if (typeof window !== 'undefined') {
-          const isSystemColorSchemeDark = window.matchMedia('(prefers-color-scheme:dark)').matches
-          if (isSystemColorSchemeDark) {
-            document.documentElement.classList.add('dark')
-          }
-        }
-      })()
-    </script>
+    <ColorMode />
   </head>
   <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
     <slot />
