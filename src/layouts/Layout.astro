@@ -1,0 +1,46 @@
+---
+import '../styles/base.css'
+import GoogleFont from './GoogleFont.astro'
+
+export interface Props {
+  title: string
+  author?: string
+  description?: string
+}
+
+const {
+  title = 'zacharytamas',
+  author = 'Zachary Jones',
+  description = 'My personal website.',
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en" class="theme">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{`${title} | zacharytamas`}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <GoogleFont />
+
+    <script is:inline>
+      ;(function () {
+        if (typeof window !== 'undefined') {
+          const isSystemColorSchemeDark = window.matchMedia('(prefers-color-scheme:dark)').matches
+          if (isSystemColorSchemeDark) {
+            document.documentElement.classList.add('dark')
+          }
+        }
+      })()
+    </script>
+  </head>
+  <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
+    <slot />
+  </body>
+</html>
