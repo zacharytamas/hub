@@ -1,6 +1,4 @@
 singleQuote: true
-printWidth: 90
-overrides:
-  - files: '*.mdx'
-    options:
-      proseWrap: always
+semi: false
+arrowParens: avoid
+printWidth: 100
