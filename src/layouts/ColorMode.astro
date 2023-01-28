@@ -2,15 +2,17 @@
 ---
 
 <script is:inline>
-  if (typeof window !== 'undefined') {
-    function updateColorModeClass(matches) {
-      document.documentElement.classList[matches ? 'add' : 'remove']('dark')
+  ;(() => {
+    if (typeof window !== 'undefined') {
+      function updateColorModeClass(matches) {
+        document.documentElement.classList[matches ? 'add' : 'remove']('dark')
+      }
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        updateColorModeClass(event.matches)
+      })
+
+      updateColorModeClass(window.matchMedia('(prefers-color-scheme:dark)').matches)
     }
-
-    window.matchMedia('(prefers-color-scheme: dark').addEventListener('change', event => {
-      updateColorModeClass(event.matches)
-    })
-
-    updateColorModeClass(window.matchMedia('(prefers-color-scheme:dark').matches)
-  }
+  })()
 </script>
