@@ -27,6 +27,7 @@ module.exports = {
           code: 'rgb(var(--color-bg-code) / <alpha-value>)',
           selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
         },
+
         border: {
           code: 'rgb(var(--color-border-code) / <alpha-value>)',
         },
@@ -37,10 +38,7 @@ module.exports = {
             'h1, h2, h3, h4, h5': {
               color: 'rgb(var(--color-text-heading))',
             },
-          },
-        },
-        hub: {
-          css: {
+
             '--tw-prose-body': 'rgb(var(--color-text-body))',
             '--tw-prose-headings': 'rgb(var(--color-text-heading))',
             '--tw-prose-lead': 'rgb(var(--color-text-body))',
