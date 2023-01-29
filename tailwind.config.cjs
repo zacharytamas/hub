@@ -18,11 +18,13 @@ module.exports = {
           body: 'rgb(var(--color-text-body) / <alpha-value>)',
           bold: 'rgb(var(--color-text-bold) / <alpha-value>)',
           heading: 'rgb(var(--color-text-heading) / <alpha-value>)',
+          muted: 'rgb(var(--color-text-muted) / <alpha-value>)',
           selection: 'rgb(var(--color-text-selection) / <alpha-value>)',
         },
 
         bg: {
           body: 'rgb(var(--color-bg-body) / <alpha-value>)',
+          code: 'rgb(var(--color-bg-code) / <alpha-value>)',
           selection: 'rgb(var(--color-bg-selection) / <alpha-value>)',
         },
         border: {
