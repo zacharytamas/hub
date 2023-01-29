@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer'
+import Header, { HeaderProps } from '../components/Header'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
@@ -9,6 +10,7 @@ export interface Props {
   author?: string
   description?: string
   withoutFooter?: boolean
+  headerVariant?: HeaderProps['variant']
 }
 
 const {
@@ -16,6 +18,7 @@ const {
   author = 'Zachary Jones',
   description = 'My personal website.',
   withoutFooter = false,
+  headerVariant,
 } = Astro.props
 ---
 
@@ -36,6 +39,7 @@ const {
     <ColorMode />
   </head>
   <body class="max-w-3xl mx-auto px-6 sm:px-8">
+    <Header variant={headerVariant} />
     <slot />
     {!withoutFooter ? <Footer /> : null}
   </body>
