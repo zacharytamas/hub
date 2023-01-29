@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { CollectionEntry, getCollection } from 'astro:content'
+
+const writings = (await getCollection('writings')).reduce((byYear, entry) => {
+  const year = entry.data.date.getFullYear()
+  return { ...byYear, [year]: [...(byYear[year] ?? []), entry] }
+}, {} as Record<string, CollectionEntry<'writings'>[]>)
+---
+
+<Layout title="Writings">
+  <div class="prose">
+    <h1 class="text-primary-main">Writings</h1>
+    <p>A collection of my writings over time.</p>
+  </div>
+
+  <div class="prose">
+    {
+      Object.entries(writings)
+        .sort(([a], [b]) => (a < b ? 1 : -1))
+        .map(([year, entries]) => (
+          <section>
+            <h3 class="border-l-4 pl-4">{year}</h3>
+            <div>
+              {entries.map(entry => (
+                <div>
+                  <a href={`/writings/${entry.slug}`}>{entry.data.title}</a>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))
+    }
+  </div>
+</Layout>
