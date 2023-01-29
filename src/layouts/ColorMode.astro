@@ -3,6 +3,7 @@
     if (typeof window !== 'undefined') {
       function updateColorModeClass(matches) {
         document.documentElement.classList[matches ? 'add' : 'remove']('dark')
+        document.head.children.namedItem('theme-color').content = matches ? '#0e141b' : '#ffffff'
       }
 
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
