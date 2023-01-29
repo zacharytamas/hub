@@ -1,0 +1,17 @@
+---
+import HeaderLink from './HeaderLink.astro'
+import HomeIcon from './HomeIcon'
+
+export interface Props {
+  variant?: 'front-page'
+}
+
+const { variant } = Astro.props
+---
+
+<header class="site-header flex mb-6 border-b py-4">
+  <menu role="navigation" class="flex space-x-3 items-center text-sm">
+    <HeaderLink href="/" variant="home"><HomeIcon /></HeaderLink>
+    <HeaderLink href="/writings">Writings</HeaderLink>
+  </menu>
+</header>

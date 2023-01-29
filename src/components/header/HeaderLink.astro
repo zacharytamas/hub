@@ -1,0 +1,33 @@
+---
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  variant?: 'home'
+}
+
+const { href, class: className, variant, ...props } = Astro.props
+
+const currentPath = Astro.url.pathname
+const isActive =
+  typeof href === 'string'
+    ? variant === 'home'
+      ? currentPath === href
+      : currentPath.startsWith(href)
+    : false
+---
+
+<a
+  href={href}
+  class:list={[
+    'hover:no-underline',
+    className,
+    variant == 'home' && {
+      'border-r-2 pr-3': true,
+      'text-primary-main': isActive,
+      'text-text-muted': !isActive,
+    },
+
+    {
+      'font-bold underline underline-offset-4': isActive,
+    },
+  ]}
+  {...props}><slot /></a
+>
