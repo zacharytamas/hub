@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
@@ -7,12 +8,14 @@ export interface Props {
   title: string
   author?: string
   description?: string
+  withoutFooter?: boolean
 }
 
 const {
   title = 'zacharytamas',
   author = 'Zachary Jones',
   description = 'My personal website.',
+  withoutFooter = false,
 } = Astro.props
 ---
 
@@ -34,5 +37,6 @@ const {
   </head>
   <body class="max-w-3xl mx-auto px-6 sm:px-8">
     <slot />
+    {!withoutFooter ? <Footer /> : null}
   </body>
 </html>
