@@ -2,21 +2,22 @@
 import Footer from '../components/Footer'
 import Meta from '../components/head/Meta.astro'
 import Header from '../components/header/Header.astro'
+import siteConfig from '../siteConfig'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
 
 export interface Props {
-  title: string
+  title?: string
   author?: string
   description?: string
 }
 
 const {
   title = 'zacharytamas',
-  author = 'Zachary Jones',
-  description = 'My personal website.',
-} = Astro.props
+  author = siteConfig.defaultAuthor,
+  description = siteConfig.defaultDescription,
+} = Astro.props as Props
 
 const noVariant = Astro.props.variant === undefined
 ---
