@@ -10,14 +10,12 @@ export interface Props {
   title: string
   author?: string
   description?: string
-  withoutFooter?: boolean
 }
 
 const {
   title = 'zacharytamas',
   author = 'Zachary Jones',
   description = 'My personal website.',
-  withoutFooter = false,
 } = Astro.props
 
 const noVariant = Astro.props.variant === undefined
@@ -35,6 +33,6 @@ const noVariant = Astro.props.variant === undefined
   <body>
     <Header />
     <slot />
-    {!withoutFooter ? <Footer /> : null}
+    <Footer />
   </body>
 </html>
