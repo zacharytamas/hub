@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer'
 import Header, { Props as HeaderProps } from '../components/header/Header.astro'
+import Meta from '../components/head/Meta.astro'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
@@ -26,15 +27,8 @@ const {
 <html lang="en" class="theme">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
-
+    <Meta description={description} author={author} />
     <title>{`${title} | zacharytamas`}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta name="author" content={author} />
     <GoogleFont />
     <ColorMode />
   </head>
