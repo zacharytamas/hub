@@ -13,6 +13,10 @@
     transition: background-color 0.3s ease;
   }
 
+  body {
+    @apply max-w-3xl mx-auto px-6 sm:px-8;
+  }
+
   .theme {
     --color-primary-main: 249 115 22;
 

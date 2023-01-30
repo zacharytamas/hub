@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer'
-import Header, { Props as HeaderProps } from '../components/header/Header.astro'
 import Meta from '../components/head/Meta.astro'
+import Header, { Props as HeaderProps } from '../components/header/Header.astro'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
@@ -32,7 +32,7 @@ const {
     <GoogleFont />
     <ColorMode />
   </head>
-  <body class="max-w-3xl mx-auto px-6 sm:px-8">
+  <body>
     <Header variant={headerVariant} />
     <slot />
     {!withoutFooter ? <Footer /> : null}
