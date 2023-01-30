@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer'
 import Meta from '../components/head/Meta.astro'
-import Header, { Props as HeaderProps } from '../components/header/Header.astro'
+import Header from '../components/header/Header.astro'
 import '../styles/base.css'
 import ColorMode from './ColorMode.astro'
 import GoogleFont from './GoogleFont.astro'
@@ -11,7 +11,6 @@ export interface Props {
   author?: string
   description?: string
   withoutFooter?: boolean
-  headerVariant?: HeaderProps['variant']
 }
 
 const {
@@ -19,8 +18,9 @@ const {
   author = 'Zachary Jones',
   description = 'My personal website.',
   withoutFooter = false,
-  headerVariant,
 } = Astro.props
+
+const noVariant = Astro.props.variant === undefined
 ---
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ const {
     <ColorMode />
   </head>
   <body>
-    <Header variant={headerVariant} />
+    <Header />
     <slot />
     {!withoutFooter ? <Footer /> : null}
   </body>
