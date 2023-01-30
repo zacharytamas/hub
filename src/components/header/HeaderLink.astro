@@ -21,12 +21,12 @@ const isActive =
     className,
     variant == 'home' && {
       'border-r-2 pr-3': true,
-      'text-primary-main': isActive,
       'text-text-muted': !isActive,
     },
 
     {
-      'font-bold underline underline-offset-4': isActive,
+      'font-bold text-primary-main': isActive,
+      'underline underline-offset-4': !isActive,
     },
   ]}
   {...props}><slot /></a
