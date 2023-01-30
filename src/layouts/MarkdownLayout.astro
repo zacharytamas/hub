@@ -1,0 +1,42 @@
+---
+import Footer from '../components/Footer'
+import Meta from '../components/head/Meta.astro'
+import Header from '../components/header/Header.astro'
+import siteConfig from '../siteConfig'
+import '../styles/base.css'
+import ColorMode from './ColorMode.astro'
+import GoogleFont from './GoogleFont.astro'
+
+export interface Props {
+  description?: string
+  author?: string
+  title?: string
+  frontmatter?: Record<string, any>
+}
+
+const {
+  description = siteConfig.defaultDescription,
+  author = siteConfig.defaultAuthor,
+  frontmatter = {},
+  title,
+} = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang="en" class="theme">
+  <head>
+    <meta charset="UTF-8" />
+    <Meta description={description} author={author} />
+    <title>{[title, 'zacharytamas'].filter(Boolean).join(' | ')}</title>
+    <GoogleFont />
+    <ColorMode />
+  </head>
+  <body>
+    <Header />
+    <article class="prose">
+      {frontmatter.title ? <h1 class="text-primary-main">{frontmatter.title}</h1> : null}
+      <slot />
+    </article>
+    <Footer />
+  </body>
+</html>
