@@ -2,7 +2,26 @@
 import Layout from '../../layouts/Layout.astro'
 import { CollectionEntry, getCollection } from 'astro:content'
 
-const writings = (await getCollection('writings')).reduce((byYear, entry) => {
+const allWritings = await getCollection('writings')
+
+const { evergreen, tags, dated } = allWritings.reduce(
+  (map, entry) => {
+    entry.data.tags.forEach(tag => map.tags.add(tag))
+
+    if (entry.data.evergreen) {
+      return { ...map, evergreen: [...map.evergreen, entry] }
+    } else {
+      return { ...map, dated: [...map.dated, entry] }
+    }
+  },
+  { evergreen: [], tags: new Set<string>(), dated: [] } as {
+    evergreen: CollectionEntry<'writings'>[]
+    tags: Set<string>
+    dated: CollectionEntry<'writings'>[]
+  }
+)
+
+const datedWritings = dated.reduce((byYear, entry) => {
   const year = entry.data.date.getFullYear()
   return { ...byYear, [year]: [...(byYear[year] ?? []), entry] }
 }, {} as Record<string, CollectionEntry<'writings'>[]>)
@@ -15,21 +34,51 @@ const writings = (await getCollection('writings')).reduce((byYear, entry) => {
   </div>
 
   <div class="prose">
-    {
-      Object.entries(writings)
-        .sort(([a], [b]) => (a < b ? 1 : -1))
-        .map(([year, entries]) => (
-          <section>
-            <h3 class="border-l-4 pl-4">{year}</h3>
-            <div>
-              {entries.map(entry => (
-                <div>
-                  <a href={`/writings/${entry.slug}`}>{entry.data.title}</a>
-                </div>
-              ))}
-            </div>
-          </section>
+    <section>
+      <h2>Tags</h2>
+      <div class="grid grid-cols-4 w-full">
+        {Array.from(tags).map(tag => <a href={`/writings/tags/${tag}`}>{tag}</a>)}
+      </div>
+    </section>
+    <hr />
+    <section>
+      <h2>🌿 Evergreen</h2>
+      <p>
+        I endeavor to keep these articles up-to-date. They should be considered more authorative for
+        their subjects than what is discussed in the dated articles.
+      </p>
+
+      {
+        evergreen.map(entry => (
+          <div>
+            <a href={`/writings/${entry.slug}`}>{entry.data.title}</a>
+          </div>
         ))
-    }
+      }
+    </section>
+
+    <section>
+      <h2>Dated Articles</h2>
+      <div class="grid grid-cols-2">
+        {
+          Object.entries(datedWritings)
+            .sort(([a], [b]) => (a < b ? 1 : -1))
+            .map(([year, entries]) => (
+              <section>
+                <h3 class="border-l-4 pl-4">{year}</h3>
+                <ul>
+                  {entries
+                    .sort(({ data: { date: a } }, { data: { date: b } }) => (a < b ? 1 : -1))
+                    .map(entry => (
+                      <li>
+                        <a href={`/writings/${entry.slug}`}>{entry.data.title}</a>
+                      </li>
+                    ))}
+                </ul>
+              </section>
+            ))
+        }
+      </div>
+    </section>
   </div>
 </Layout>

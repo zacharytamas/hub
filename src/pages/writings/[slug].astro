@@ -17,11 +17,20 @@ const { Content } = await entry.render()
 
 <Layout title={`${entry.data.title}`}>
   <div class="prose">
-    <h1 class="text-primary-main">{entry.data.evergreen ? <>🌿</> : null} {entry.data.title}</h1>
+    <h1 class="text-primary-main">{entry.data.title}</h1>
 
     <section class="meta-bar text-text-muted">
       {entry.data.showDate ? <time>{entry.data.date.toDateString()}</time> : null}
-      {entry.data.evergreen ? <div>🌿 Evergreen</div> : null}
+      {
+        entry.data.evergreen ? (
+          <div>
+            🌿{' '}
+            <abbr title="This article is kept up to date over time. Its content may change after publication.">
+              Evergreen
+            </abbr>
+          </div>
+        ) : null
+      }
     </section>
     <Content />
   </div>
