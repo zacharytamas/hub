@@ -2,8 +2,9 @@
 title: 'Leisure creep'
 date: 2017-01-03
 slug: 'leisure-creep'
+tags:
+  - thoughts
 
-category: 'Thoughts'
 description:
   '"Lifestyle creep" is a well-known condition where a person increases their standard of living
   in-step with their income such that luxury becomes necessity. I think we do a similar thing with

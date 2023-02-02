@@ -2,11 +2,10 @@
 title: 'Thoughts on having too many thoughts'
 date: 2018-08-09
 slug: thoughts-on-too-many-thoughts
+tags:
+  - personal
 
 draft: false
-category: 'Thoughts'
-tags:
-  - Autism
 description:
   'I am a very varied person with lots of interests that aren’t always related and I tend to cycle
   through them in a manor that is not entirely efficient. I’ve always wanted to build a cohesive

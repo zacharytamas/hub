@@ -1,9 +1,10 @@
 ---
 title: 'How I Read'
 slug: 'how-i-read'
+tags:
+  - personal
 
 date: 2018-04-25
-category: 'Reading'
 description:
   'I’m an avid reader: my book count annually is usually around forty books plus or minus ten or so
   depending on the lengths of books. Though this is fairly consistent for the last few years, in the

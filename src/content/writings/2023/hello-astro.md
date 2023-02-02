@@ -2,6 +2,8 @@
 title: 'Hello Astro'
 date: 2023-01-28
 slug: 'hello-astro'
+tags:
+  - website
 
 showDate: true
 ---
